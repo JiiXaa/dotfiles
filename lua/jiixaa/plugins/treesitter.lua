@@ -1,21 +1,21 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",  -- Automatically run `:TSUpdate` after installation
-    event = { "BufReadPost", "BufNewFile" },  -- Load treesitter on buffer read/new file
-    lazy = vim.fn.argc(-1) == 0,  -- Lazy load if no files are specified on the command line
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    lazy = vim.fn.argc(-1) == 0,
 
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",  -- Additional text objects via treesitter
-      "nvim-treesitter/playground",  -- Interactive treesitter playground
-      "windwp/nvim-ts-autotag",  -- Autotag support for HTML-like languages
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "nvim-treesitter/playground",
+      "windwp/nvim-ts-autotag",
     },
 
     config = function()
       local treesitter = require("nvim-treesitter.configs")
 
       treesitter.setup({
-        ensure_installed = {  -- Languages to be installed by treesitter
+        ensure_installed = {
           "typescript",
           "javascript",
           "lua",
@@ -37,15 +37,15 @@ return {
           "query",
         },
         highlight = {
-          enable = true,  -- Enable highlighting
-          additional_vim_regex_highlighting = false,  -- Disable additional regex highlighting
+          enable = true,
+          additional_vim_regex_highlighting = false,
         },
         indent = {
-          enable = true,  -- Enable indentation
+          enable = true,
         },
         incremental_selection = {
-          enable = true,  -- Enable incremental selection
-          keymaps = {  -- Keymaps for incremental selection
+          enable = true,
+          keymaps = {
             init_selection = "<c-space>",
             node_incremental = "<c-space>",
             scope_incremental = "<c-s>",
@@ -54,9 +54,9 @@ return {
         },
         textobjects = {
           select = {
-            enable = true,  -- Enable text object selection
-            lookahead = true,  -- Automatically jump forward to textobj
-            keymaps = {  -- Keymaps for text object selection
+            enable = true,
+            lookahead = true,
+            keymaps = {
               ["aa"] = "@parameter.outer",
               ["ia"] = "@parameter.inner",
               ["af"] = "@function.outer",
@@ -66,8 +66,8 @@ return {
             },
           },
           move = {
-            enable = true,  -- Enable moving to next/previous text objects
-            set_jumps = true,  -- Set jumps in the jumplist
+            enable = true,
+            set_jumps = true,
             goto_next_start = {
               ["]m"] = "@function.outer",
               ["]]"] = "@class.outer",
@@ -86,7 +86,7 @@ return {
             },
           },
           swap = {
-            enable = true,  -- Enable swapping of text objects
+            enable = true,
             swap_next = {
               ["<leader>s"] = "@parameter.inner",
             },
@@ -96,11 +96,11 @@ return {
           },
         },
         playground = {
-          enable = true,  -- Enable playground
+          enable = true,
           disable = {},
-          updatetime = 25,  -- Time for highlighting nodes in the playground from source code
-          persist_queries = false,  -- Whether the query persists across vim sessions
-          keybindings = {  -- Keybindings for playground
+          updatetime = 25,
+          persist_queries = false,
+          keybindings = {
             toggle_query_editor = "o",
             toggle_hl_groups = "i",
             toggle_injected_languages = "t",
@@ -115,27 +115,24 @@ return {
         },
       })
 
-      -- Add a custom parser for Blade templates
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       parser_config.blade = {
         install_info = {
-          url = "https://github.com/EmranMR/tree-sitter-blade",  -- URL for the Blade parser
+          url = "https://github.com/EmranMR/tree-sitter-blade",
           files = { "src/parser.c" },
           branch = "main",
         },
-        filetype = "blade",  -- Filetype for Blade templates
+        filetype = "blade",
       }
 
-      -- Add filetype detection for Blade templates
       vim.filetype.add({
         pattern = {
           [".*%.blade%.php"] = "blade",
         },
       })
 
-      -- Ensure nvim-ts-autotag is set up correctly
       require("nvim-ts-autotag").setup({
-        filetypes = {  -- Filetypes for autotag
+        filetypes = {
           "html",
           "xml",
           "javascript",
@@ -148,7 +145,7 @@ return {
           "jsx",
           "rescript",
         },
-        skip_tags = {  -- Tags to skip for autotag
+        skip_tags = {
           "area",
           "base",
           "br",
@@ -169,10 +166,15 @@ return {
           "menuitem",
         },
       })
+
+      -- Folding settings
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.opt.foldlevel = 99 -- Set the initial fold level to 99 to open all folds
     end,
   },
   {
     "windwp/nvim-ts-autotag",
-    opts = {},  -- Ensure nvim-ts-autotag is loaded with default options
+    opts = {},
   },
 }
