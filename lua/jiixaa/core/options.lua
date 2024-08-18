@@ -6,16 +6,13 @@ opt.relativenumber = true
 opt.number = true
 
 -- Set the shell to use bash
-vim.o.shell = "C:\\PROGRA~1\\PowerShell\\7\\pwsh.exe"
 -- Set the flag for executing commands
 vim.o.shellcmdflag = "-c"
 -- Handle shell quoting issues
 vim.o.shellquote = ""
 vim.o.shellxquote = ""
--- FIX:
--- vim.o.shell = 'C:\\Program Files\\Git\\usr\\bin\\bash.exe'
 
-vim.env.PATH = vim.env.PATH .. ";C:\\ProgramData\\chocolatey\\lib\\Wget\\tools"
+-- vim.env.PATH = vim.env.PATH .. ";C:\\ProgramData\\chocolatey\\lib\\Wget\\tools"
 
 -- tabs & indentation
 

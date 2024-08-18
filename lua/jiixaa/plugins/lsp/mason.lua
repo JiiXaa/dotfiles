@@ -1,16 +1,14 @@
 return {
-  "williamboman/mason.nvim",  -- Main Mason plugin for managing external tools
+  "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",  -- Mason integration with LSPConfig
-    "WhoIsSethDaniel/mason-tool-installer.nvim",  -- Tool installer for Mason
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
-    -- Import necessary Mason plugins
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local mason_tool_installer = require("mason-tool-installer")
 
-    -- Enable Mason and configure UI icons
     mason.setup({
       ui = {
         icons = {
@@ -21,32 +19,30 @@ return {
       },
     })
 
-    -- Setup Mason LSPConfig with specified servers to ensure installed
     mason_lspconfig.setup({
       ensure_installed = {
-        "tsserver",  -- TypeScript server
-        "html",  -- HTML server
-        "cssls",  -- CSS server
-        "tailwindcss",  -- Tailwind CSS server
-        "svelte",  -- Svelte server
-        "lua_ls",  -- Lua server
-        "graphql",  -- GraphQL server
-        "emmet_ls",  -- Emmet server for HTML/CSS
-        "emmet_language_server",  -- Emmet language server (seems redundant with emmet_ls)
-        "prismals",  -- Prisma server
-        "pyright",  -- Python server
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "emmet_language_server",
+        "prismals",
+        "pyright",
       },
     })
 
-    -- Setup Mason Tool Installer with specified tools to ensure installed
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier",  -- Prettier formatter
-        "stylua",  -- Lua formatter
-        "isort",  -- Python import sorter
-        "black",  -- Python formatter
-        "pylint",  -- Python linter
-        "eslint_d",  -- ESLint daemon
+        "prettier",
+        "stylua",
+        -- "isort",
+        -- "black",
+        -- "pylint",
+        "eslint_d",
       },
     })
   end,
