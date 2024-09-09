@@ -21,10 +21,13 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "tsserver",
         "html",
         "cssls",
+        "css_variables",
         "tailwindcss",
+        "eslint",
+        "ts_ls",
+        "jsonls",
         "svelte",
         "lua_ls",
         "graphql",
