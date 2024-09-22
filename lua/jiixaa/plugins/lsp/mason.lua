@@ -23,8 +23,8 @@ return {
       ensure_installed = {
         "html",
         "cssls",
-        "css_variables",
         "tailwindcss",
+        "css_variables",
         "eslint",
         "ts_ls",
         "jsonls",

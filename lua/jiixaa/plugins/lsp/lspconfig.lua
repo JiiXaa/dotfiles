@@ -1,11 +1,11 @@
 return {
-  "neovim/nvim-lspconfig",  -- Main LSP configuration plugin
-  event = { "BufReadPre", "BufNewFile" },  -- Lazy loading on buffer read/new file
+  "neovim/nvim-lspconfig", -- Main LSP configuration plugin
+  event = { "BufReadPre", "BufNewFile" }, -- Lazy loading on buffer read/new file
 
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",  -- Autocompletion integration
-    { "antosha417/nvim-lsp-file-operations", config = true },  -- File operations support
-    { "folke/neodev.nvim", opts = {} },  -- Neovim Lua development setup
+    "hrsh7th/cmp-nvim-lsp", -- Autocompletion integration
+    { "antosha417/nvim-lsp-file-operations", config = true }, -- File operations support
+    { "folke/neodev.nvim", opts = {} }, -- Neovim Lua development setup
   },
 
   config = function()
@@ -81,6 +81,45 @@ return {
         })
       end,
       -- Custom configurations for specific servers
+      ["cssls"] = function()
+        lspconfig.cssls.setup({
+          capabilities = capabilities,
+          settings = {
+            css = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            scss = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            less = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+          filetypes = { "css", "scss", "less" },
+        })
+      end,
+      ["tailwindcss"] = function()
+        lspconfig.tailwindcss.setup({
+          capabilities = capabilities,
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "sass",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "svelte",
+          },
+        })
+      end,
       ["svelte"] = function()
         lspconfig["svelte"].setup({
           capabilities = capabilities,
