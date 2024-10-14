@@ -49,7 +49,9 @@ return {
             init_selection = "<c-space>",
             node_incremental = "<c-space>",
             scope_incremental = "<c-s>",
-            node_decremental = "<c-backspace>",
+            -- Remap node_decremental to <c-h> instead of <c-backspace>
+            -- Reason: The terminal interprets <c-backspace> as <c-h>, so Neovim receives <c-h> when <c-backspace> is pressed.
+            node_decremental = "<c-h>",
           },
         },
         textobjects = {
