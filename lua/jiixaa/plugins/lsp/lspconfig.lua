@@ -81,6 +81,20 @@ return {
         })
       end,
       -- Custom configurations for specific servers
+      ["gopls"] = function()
+        lspconfig.gopls.setup({
+          capabilities = capabilities,
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true, -- Highlight unused parameters
+                shadow = true, -- Detect shadowed variables
+              },
+              staticcheck = true, -- Enable static analysis checks
+            },
+          },
+        })
+      end,
       ["cssls"] = function()
         lspconfig.cssls.setup({
           capabilities = capabilities,
