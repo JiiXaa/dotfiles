@@ -11,6 +11,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local transform_mod = require("telescope.actions.mt").transform_mod
+    local builtin = require("telescope.builtin")
 
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
@@ -46,5 +47,13 @@ return {
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+    -- LSP-related keymaps
+    keymap.set("n", "<leader>lr", builtin.lsp_references, { desc = "Find references (LSP)" })
+    keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition (LSP)" })
+    keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Go to implementation (LSP)" })
+    keymap.set("n", "<leader>ld", builtin.lsp_document_symbols, { desc = "Search document symbols (LSP)" })
+    keymap.set("n", "<leader>lw", builtin.lsp_workspace_symbols, { desc = "Search workspace symbols (LSP)" })
+    keymap.set("n", "<leader>li", "<cmd>Telescope lsp_incoming_calls<cr>", { desc = "Find incoming calls (LSP)" })
+    keymap.set("n", "<leader>lo", "<cmd>Telescope lsp_outgoing_calls<cr>", { desc = "Find outgoing calls (LSP)" })
   end,
 }
