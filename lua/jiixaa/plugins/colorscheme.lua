@@ -4,15 +4,15 @@ return {
   config = function()
     local transparent = false -- set to true if you would like to enable transparency
 
-    local bg = "#011628"
-    local bg_dark = "#011423"
-    local bg_highlight = "#143652"
-    local bg_search = "#0A64AC"
-    local bg_visual = "#275378"
-    local fg = "#CBE0F0"
-    local fg_dark = "#B4D0E9"
-    local fg_gutter = "#627E97"
-    local border = "#547998"
+    local bg = "#1a1b26"
+    local bg_dark = "#13141c"
+    local bg_highlight = "#292e42"
+    local bg_search = "#3d59a1"
+    local bg_visual = "#444b6a"
+    local fg = "#c0caf5"
+    local fg_dark = "#a9b1d6"
+    local fg_gutter = "#3b4261"
+    local border = "#565f89"
 
     require("tokyonight").setup({
       style = "night",
