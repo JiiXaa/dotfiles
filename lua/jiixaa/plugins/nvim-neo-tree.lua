@@ -48,5 +48,8 @@ return {
     )
     vim.keymap.set("n", "<leader>ew", "<cmd>Neotree focus<CR>", { desc = "Focus on Neo-tree" })
     vim.keymap.set("n", "<leader>eC", "<cmd>Neotree close<CR>", { desc = "Close Neo-tree" })
+
+    vim.api.nvim_command("highlight NeoTreeDirectoryIcon guifg=#c678dd")
+    vim.api.nvim_command("highlight NeoTreeDirectoryName guifg=white")
   end,
 }
