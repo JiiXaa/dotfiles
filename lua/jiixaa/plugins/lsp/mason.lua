@@ -37,6 +37,7 @@ return {
         "pyright",
         "gopls",
       },
+      automatic_enable = true,
     })
 
     mason_tool_installer.setup({
