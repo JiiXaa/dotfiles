@@ -2,17 +2,11 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+vim.o.shell = vim.fn.executable("zsh") == 1 and vim.fn.trim(vim.fn.system("which zsh")) or vim.o.shell
+vim.o.shellcmdflag = "-l -c"
+
 opt.relativenumber = true
 opt.number = true
-
--- Set the shell to use bash
--- Set the flag for executing commands
-vim.o.shellcmdflag = "-c"
--- Handle shell quoting issues
-vim.o.shellquote = ""
-vim.o.shellxquote = ""
-
--- vim.env.PATH = vim.env.PATH .. ";C:\\ProgramData\\chocolatey\\lib\\Wget\\tools"
 
 -- tabs & indentation
 
