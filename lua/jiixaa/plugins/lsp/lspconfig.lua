@@ -53,10 +53,24 @@ return {
       end,
     })
 
-    -- Diagnostic icons
-    for type, icon in pairs({ Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }) do
-      vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticSign" .. type, numhl = "" })
-    end
+    -- Configure diagnostics UI (signs, text, underline)
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "󰠠",
+        },
+        numhl = {},
+      },
+      underline = true,
+      virtual_text = {
+        prefix = "●",
+      },
+      severity_sort = true,
+      update_in_insert = false,
+    })
 
     -- Global config for all LSPs
     vim.lsp.config("*", {
