@@ -1,5 +1,0 @@
-return {
-  {
-    "matze/vim-move",
-  },
-}

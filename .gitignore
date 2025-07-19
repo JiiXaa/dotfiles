@@ -1,6 +1,29 @@
-tags
-en.utf-8.add.spl
-*.exe
-.netrwhist
-*.log
+# macOS / Linux junk
 .DS_Store
+.Trashes
+.cache
+Thumbs.db
+
+# Logs & temp files
+*.log
+*.swp
+*.tmp
+*.bak
+
+# Secrets / environment
+.env
+.env.*
+
+# Node / Go / Rust build artifacts (common dotfiles extras)
+node_modules/
+dist/
+target/
+bin/
+pkg/
+
+# Editor backups
+*~
+*.old
+# VSCode settings
+.vscode/
+
