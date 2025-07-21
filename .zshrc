@@ -75,6 +75,7 @@ alias gdc='git diff --cached'                    # Show staged changes
 alias v='nvim'
 alias vv='nvim .'
 alias lg="lazygit"
+alias fopen='selected=$(fzf --preview "bat --style=numbers --color=always {}" --height=40%) && [ -n "$selected" ] && nvim "$selected"'  # Open selected file in Neovim only if selected
 # zoxide aliases (smarter 'z' replacement)
 alias zz='zoxide query -l'                           # List all known directories
 alias zb='cd "$(zoxide query backend 2>/dev/null)"'  # Jump to backend dir if tracked
@@ -82,7 +83,12 @@ alias zf='cd "$(zoxide query frontend 2>/dev/null)"' # Jump to frontend dir if t
 alias zclear='zoxide remove -a'                      # Clear zoxide history
 zi() { cd "$(zoxide query --interactive)"; }         # Fuzzy cd with fzf
 # fzf
-alias vf='nvim $(fzf)'  # Fuzzy open file in Neovim
+# Open file in Neovim via fzf
+vf() {
+  local selected
+  selected=$(fzf --height=40%) || return 1
+  [[ -n "$selected" ]] && nvim "$selected"
+}
 # Misc
 alias install='sudo apt install'
 alias update='sudo apt update'
@@ -117,6 +123,28 @@ alias tk="tmux kill-session"           # Kill the last used or only tmux session
 alias tkt="tmux kill-session -t"       # Kill a specific named tmux session: tkt mysession
 alias treload='tmux source-file ~/.config/tmux/tmux.conf'  # reload tmux config
 alias monitor='~/.config/tmux/monitoring.sh' # Launch a tmux session with system monitoring (sensors + htop)
+
+
+# Delete all saved tmux sessions after confirmation
+forgettmux() {
+  local dir="$HOME/.local/share/tmux/resurrect"
+
+  if [[ ! -d "$dir" ]]; then
+    echo "Resurrect session directory not found: $dir"
+    return 1
+  fi
+
+  echo "Are you sure you want to delete all saved tmux sessions from:"
+  echo "   $dir"
+  read -r "confirm?Type y to continue: "
+  if [[ "$confirm" == "y" ]]; then
+    rm -f "$dir"/*
+    echo "Tmux resurrect sessions cleared."
+  else
+    echo "Cancelled. No changes made."
+  fi
+}
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

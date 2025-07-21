@@ -27,3 +27,6 @@ pkg/
 # VSCode settings
 .vscode/
 
+# Ignore all plugins in tmux, except TPM
+.config/tmux/plugins/*
+!.config/tmux/plugins/tpm/
