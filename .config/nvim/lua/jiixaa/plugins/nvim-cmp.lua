@@ -43,38 +43,23 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<Esc>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<Up>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           else
             fallback()
           end
         end, { "i", "s" }),
-        ["<Up>"] = function(fallback)
+
+        ["<Down>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.close()
-            fallback()
+            cmp.select_next_item()
           else
             fallback()
           end
-        end,
-        ["<Down>"] = function(fallback)
-          if cmp.visible() then
-            cmp.close()
-            fallback()
-          else
-            fallback()
-          end
-        end,
+        end, { "i", "s" }),
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp", group_index = 1 },
@@ -93,7 +78,7 @@ return {
             mode = "symbol_text", -- show symbol + text
             maxwidth = 50,
             ellipsis_char = "...",
-            before = function(entry, vim_item)
+            before = function(_, vim_item)
               -- Set the expandable indicator
               vim_item.menu = ({
                 copilot = "[Copilot]",
