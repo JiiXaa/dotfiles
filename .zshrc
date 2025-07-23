@@ -117,6 +117,7 @@ alias lss='exa -l --sort=size --color=always --group-directories-first' # Sort b
 # tmux
 alias tn="tmux new-session -s"         # Create a new named tmux session: tn mysession
 alias tl="tmux list-sessions"          # List all tmux sessions
+alias td='tmux detach'                 # Detach from current tmux session
 alias ta="tmux attach-session"         # Attach to the last used or only tmux session
 alias tat="tmux attach-session -t"     # Attach to a specific named tmux session: tat mysession
 alias tk="tmux kill-session"           # Kill the last used or only tmux session
