@@ -75,7 +75,7 @@ alias gdc='git diff --cached'                    # Show staged changes
 alias v='nvim'
 alias vv='nvim .'
 alias lg="lazygit"
-alias fopen='selected=$(fzf --preview "bat --style=numbers --color=always {}" --height=40%) && [ -n "$selected" ] && nvim "$selected"'  # Open selected file in Neovim only if selected
+alias vf='selected=$(fzf --preview "bat --style=numbers --color=always {}" --height=40%) && [ -n "$selected" ] && nvim "$selected"'  # Open selected file in Neovim only if selected
 # zoxide aliases (smarter 'z' replacement)
 alias zz='zoxide query -l'                           # List all known directories
 alias zb='cd "$(zoxide query backend 2>/dev/null)"'  # Jump to backend dir if tracked
@@ -84,7 +84,7 @@ alias zclear='zoxide remove -a'                      # Clear zoxide history
 zi() { cd "$(zoxide query --interactive)"; }         # Fuzzy cd with fzf
 # fzf
 # Open file in Neovim via fzf
-vf() {
+fopen() {
   local selected
   selected=$(fzf --height=40%) || return 1
   [[ -n "$selected" ]] && nvim "$selected"
@@ -124,7 +124,7 @@ alias tk="tmux kill-session"           # Kill the last used or only tmux session
 alias tkt="tmux kill-session -t"       # Kill a specific named tmux session: tkt mysession
 alias treload='tmux source-file ~/.config/tmux/tmux.conf'  # reload tmux config
 alias monitor='~/.config/tmux/monitoring.sh' # Launch a tmux session with system monitoring (sensors + htop)
-
+alias tcheats='bat --paging=always ~/.config/tmux/tmux-cheatsheet.md' # Show tmux cheatsheet
 
 # Delete all saved tmux sessions after confirmation
 forgettmux() {
