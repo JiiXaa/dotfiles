@@ -1,0 +1,54 @@
+## -------------------------------------------
+## tmux-sessionizer (tms) configuration
+## -------------------------------------------
+
+# --- project search directories -------------
+[[search_dirs]]
+path  = "/home/tomdev/Code"         # main development folder
+depth = 3                           # scan 3 levels deep
+
+[[search_dirs]]
+path  = "/home/tomdev/Documents"    # docs / PoCs
+depth = 2                           # scan 2 levels deep
+
+[[search_dirs]]
+path  = "/home/tomdev/.config"      # dotfiles as projects
+depth = 2                           # scan 2 levels deep
+
+# --- directories to ignore ------------------
+excluded = [
+    "node_modules",
+    "dist",
+    "build",
+    "out",
+    ".next",
+    ".expo",
+    ".turbo",
+    ".vercel",
+    "coverage",
+    ".cache",
+    "public",
+    ".output",
+    "android",
+    "ios",
+    ".vscode",
+    "target",
+    "bin",
+    "pkg",
+    "vendor",
+    ".git"
+]
+
+
+# --- global options --------------------------
+session_sort_order    = "LastAttached"   # sort picker list by last attached
+switch_filter_unknown = true             # hide sessions outside search_dirs
+full_path             = false            # show just the basename, not full path
+search_submodules     = true             # include initialized git submodules
+recursive_submodules  = false            # but don't recurse into submodules of submodules
+
+# --- picker key-bindings (optional) ----------
+[shortcuts]
+"ctrl-j" = "move_down"   # ↓ in picker
+"ctrl-k" = "move_up"     # ↑ in picker
+# "tab"   = ""           # uncomment to disable default <Tab> binding
