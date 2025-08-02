@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -18,7 +17,7 @@ return {
 
     -- or create your custom action
     local custom_actions = transform_mod({
-      open_trouble_qflist = function(prompt_bufnr)
+      open_trouble_qflist = function()
         trouble.toggle("quickfix")
       end,
     })
@@ -47,6 +46,7 @@ return {
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
     -- LSP-related keymaps
     keymap.set("n", "<leader>lr", builtin.lsp_references, { desc = "Find references (LSP)" })
     keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition (LSP)" })
