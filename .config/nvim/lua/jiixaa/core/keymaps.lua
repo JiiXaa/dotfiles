@@ -2,6 +2,12 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- Scroll down 3 lines with Ctrl+j
+keymap.set("n", "<C-j>", "3<C-e>", { noremap = true, silent = true, desc = "Scroll view down 3 lines" })
+
+-- Scroll up 3 lines with Ctrl+k
+keymap.set("n", "<C-k>", "3<C-y>", { noremap = true, silent = true, desc = "Scroll view up 3 lines" })
+
 -- Save file with Ctrl+s
 keymap.set("n", "<C-s>", "<cmd>w<CR>", { noremap = true, silent = true })
 
