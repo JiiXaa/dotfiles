@@ -36,6 +36,7 @@ return {
         "prismals",
         "pyright",
         "gopls",
+        "rust_analyzer",
       },
       automatic_enable = true,
     })
@@ -48,6 +49,7 @@ return {
         -- "black",
         -- "pylint",
         "eslint",
+        "codelldb",
       },
     })
   end,

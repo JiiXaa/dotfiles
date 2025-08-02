@@ -87,6 +87,30 @@ return {
       },
     })
 
+    vim.lsp.config("rust_analyzer", {
+      on_attach = function(client, bufnr)
+        -- Enable autoformat on save for Rust
+        if client.server_capabilities.documentFormattingProvider then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = bufnr, async = false })
+            end,
+          })
+        end
+      end,
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            allFeatures = true, -- support for feature flags in Cargo.toml
+          },
+          check = {
+            command = "clippy", -- use clippy for inline diagnostics
+          },
+        },
+      },
+    })
+
     vim.lsp.config("cssls", {
       settings = {
         css = { lint = { unknownAtRules = "ignore" } },
