@@ -8,7 +8,12 @@ return {
   },
   config = function()
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local lspconfig_util = require("lspconfig.util")
+
+    -- Apply cmp_nvim_lsp capabilities globally to all LSP servers
+    lspconfig_util.default_config = vim.tbl_deep_extend("force", lspconfig_util.default_config, {
+      capabilities = cmp_nvim_lsp.default_capabilities(),
+    })
 
     -- Keybindings when LSP attaches to a buffer
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -72,11 +77,6 @@ return {
       update_in_insert = false,
     })
 
-    -- Global config for all LSPs
-    vim.lsp.config("*", {
-      capabilities = capabilities,
-    })
-
     -- Per-server configs
     vim.lsp.config("gopls", {
       settings = {
@@ -88,17 +88,6 @@ return {
     })
 
     vim.lsp.config("rust_analyzer", {
-      on_attach = function(client, bufnr)
-        -- Enable autoformat on save for Rust
-        if client.server_capabilities.documentFormattingProvider then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({ bufnr = bufnr, async = false })
-            end,
-          })
-        end
-      end,
       settings = {
         ["rust-analyzer"] = {
           cargo = {
@@ -161,6 +150,8 @@ return {
         "svelte",
       },
     })
+
+    vim.lsp.config("ts_ls", {})
 
     vim.lsp.config("lua_ls", {
       settings = {
