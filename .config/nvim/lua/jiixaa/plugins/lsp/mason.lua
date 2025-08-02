@@ -24,7 +24,6 @@ return {
         "html",
         "cssls",
         "tailwindcss",
-        "css_variables",
         "eslint",
         "ts_ls",
         "jsonls",
@@ -45,11 +44,9 @@ return {
       ensure_installed = {
         "prettier",
         "stylua",
-        -- "isort",
-        -- "black",
-        -- "pylint",
+        "goimports",
+        "gofumpt",
         "eslint",
-        "codelldb",
       },
     })
   end,
