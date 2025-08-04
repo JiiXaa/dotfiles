@@ -17,6 +17,7 @@ return {
       treesitter.setup({
         ensure_installed = {
           "typescript",
+          "tsx",
           "javascript",
           "lua",
           "fish",
