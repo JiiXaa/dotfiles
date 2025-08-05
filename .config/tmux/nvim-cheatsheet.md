@@ -1,6 +1,20 @@
 # Nvim Cheatsheet
 
-## Flash.nvim Cheatsheet
+## Legend: Vim Modes
+
+| Mode Key | Vim Mode Name      | Description                                                        |
+| -------- | ------------------ | ------------------------------------------------------------------ |
+| `n`      | Normal             | Default mode for navigation and commands                           |
+| `i`      | Insert             | Insert text (typing mode)                                          |
+| `v`      | Visual             | Select text using motions                                          |
+| `x`      | Visual (character) | Visual mode for selecting characters (triggered with `v`)          |
+| `s`      | Select             | Similar to Visual but for GUI selection (rarely used)              |
+| `o`      | Operator-pending   | Waiting for a motion to complete an operator like `d`, `y`, or `c` |
+| `c`      | Command-line       | Typing commands (e.g. `:` or `/`)                                  |
+
+---
+
+## Flash.nvim
 
 ### Key Mappings Summary
 
@@ -67,7 +81,7 @@ Can be used in operator-pending or visual mode:
 
 ---
 
-## Substitute.nvim Cheatsheet
+## Substitute.nvim
 
 ### Key Mappings Summary
 
@@ -87,7 +101,7 @@ Can be used in operator-pending or visual mode:
 
 ---
 
-## Treesitter Textobjects Cheatsheet
+## Treesitter Textobjects
 
 ### Selection Keymaps
 
@@ -120,6 +134,71 @@ Can be used in operator-pending or visual mode:
 | `<C-Space>` | Init / Expand selection         |
 | `<C-H>`     | Shrink selection (custom remap) |
 | `<C-S>`     | Expand scope selection          |
+
+---
+
+## Comment.nvim
+
+### Key Mappings Summary
+
+| Key Combo | Mode(s) | Action         | Description                        |
+| --------- | ------- | -------------- | ---------------------------------- |
+| `gcc`     | `n`     | Toggle line    | Comment/uncomment current line     |
+| `gbc`     | `n`     | Toggle block   | Block comment for current line     |
+| `gc`      | `n/o`   | Operator line  | Comment with motion                |
+| `gb`      | `n/o`   | Operator block | Block comment with motion          |
+| `gcO`     | `n`     | Comment above  | Add comment on line above          |
+| `gco`     | `n`     | Comment below  | Add comment on line below          |
+| `gcA`     | `n`     | Comment at EOL | Add comment at end of current line |
+
+---
+
+## nvim-cmp
+
+### Key Mappings Summary
+
+| Key Combo | Mode(s) | Action                | Description                      |
+| --------- | ------- | --------------------- | -------------------------------- |
+| `<C-k>`   | `i`     | Select prev item      | Move to previous completion item |
+| `<C-j>`   | `i`     | Select next item      | Move to next completion item     |
+| `<C-b>`   | `i`     | Scroll docs up        | Scroll up in docs                |
+| `<C-f>`   | `i`     | Scroll docs down      | Scroll down in docs              |
+| `<Esc>`   | `i`     | Abort completion      | Cancel completion menu           |
+| `<CR>`    | `i`     | Confirm selection     | Confirm selected item            |
+| `<Up>`    | `i`     | Fallback to prev item | Select previous or fallback      |
+| `<Down>`  | `i`     | Fallback to next item | Select next or fallback          |
+
+---
+
+## Gitsigns.nvim
+
+### Navigation
+
+| Key Combo | Mode | Action      | Description         |
+| --------- | ---- | ----------- | ------------------- |
+| `]h`      | `n`  | `next_hunk` | Go to next hunk     |
+| `[h`      | `n`  | `prev_hunk` | Go to previous hunk |
+
+### Actions
+
+| Key Combo    | Mode     | Action              | Description                       |
+| ------------ | -------- | ------------------- | --------------------------------- |
+| `<leader>hs` | `n`, `v` | `stage_hunk`        | Stage current hunk                |
+| `<leader>hr` | `n`, `v` | `reset_hunk`        | Reset current hunk                |
+| `<leader>hS` | `n`      | `stage_buffer`      | Stage entire buffer               |
+| `<leader>hR` | `n`      | `reset_buffer`      | Reset entire buffer               |
+| `<leader>hu` | `n`      | `undo_stage_hunk`   | Undo stage hunk                   |
+| `<leader>hp` | `n`      | `preview_hunk`      | Preview current hunk              |
+| `<leader>hb` | `n`      | `blame_line`        | Git blame for current line        |
+| `<leader>hB` | `n`      | `toggle_line_blame` | Toggle virtual text blame display |
+| `<leader>hd` | `n`      | `diffthis`          | Git diff against index            |
+| `<leader>hD` | `n`      | `diffthis('~')`     | Git diff against last commit      |
+
+### Text Object
+
+| Key Combo | Mode(s)  | Action        | Description         |
+| --------- | -------- | ------------- | ------------------- |
+| `ih`      | `o`, `x` | `select_hunk` | Select current hunk |
 
 ---
 
