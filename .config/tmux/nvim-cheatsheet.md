@@ -202,6 +202,48 @@ Can be used in operator-pending or visual mode:
 
 ---
 
+## Emmet.nvim
+
+### Key Mappings Summary
+
+| Key Combo    | Mode(s)  | Action                     | Description                                |
+| ------------ | -------- | -------------------------- | ------------------------------------------ |
+| `<leader>xe` | `n`, `v` | `wrap_with_abbreviation()` | Wrap selected text with Emmet abbreviation |
+
+### Usage Example
+
+In visual mode, select HTML code or a placeholder text, press `<leader>xe`, and then type an Emmet abbreviation (e.g. `ul>li*3`) to wrap the selection.
+
+- Example:
+  - Select: `Hello`
+  - Trigger: `<leader>xe`
+  - Input: `div.class`
+  - Result: `<div class="class">Hello</div>`
+
+---
+
+## Neo-tree.nvim Cheatsheet
+
+### Key Mappings Summary
+
+| Key Combo    | Mode | Action                      | Description                     |
+| ------------ | ---- | --------------------------- | ------------------------------- |
+| `<leader>ee` | `n`  | `Neotree toggle`            | Toggle Neo-tree                 |
+| `<leader>ef` | `n`  | `Neotree reveal`            | Reveal current file in Neo-tree |
+| `<leader>eb` | `n`  | `Neotree buffers toggle`    | Toggle Buffers view             |
+| `<leader>eg` | `n`  | `Neotree git_status toggle` | Toggle Git Status view          |
+| `<leader>er` | `n`  | `Neotree close + reveal`    | Soft refresh Neo-tree           |
+| `<leader>ew` | `n`  | `Neotree focus`             | Focus Neo-tree                  |
+| `<leader>eC` | `n`  | `Neotree close`             | Close Neo-tree                  |
+
+### Notes
+
+- Neo-tree provides a modern file explorer, buffer manager, and git status viewer.
+- Git status and buffer view are toggled independently.
+- `Soft refresh` (`<leader>er`) closes and reopens the file explorer to resync.
+
+---
+
 ### Tip: Open Cheatsheet in Tmux Popup
 
 Add this to your `.tmux.conf`:
