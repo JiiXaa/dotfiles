@@ -1,4 +1,4 @@
-# Tmux Cheatsheet
+# Nvim Cheatsheet
 
 ## Flash.nvim Cheatsheet
 
@@ -64,6 +64,62 @@ Can be used in operator-pending or visual mode:
 #### `<C-f>` – Flash in Command Mode
 
 - Press `<C-f>` during `/` or `:` to toggle Flash-powered search
+
+---
+
+## Substitute.nvim Cheatsheet
+
+### Key Mappings Summary
+
+| Key Combo | Mode | Action                  | Description                        |
+| --------- | ---- | ----------------------- | ---------------------------------- |
+| `s`       | `n`  | `substitute.operator()` | Substitute with a motion           |
+| `ss`      | `n`  | `substitute.line()`     | Substitute entire line             |
+| `S`       | `n`  | `substitute.eol()`      | Substitute from cursor to line end |
+| `s`       | `x`  | `substitute.visual()`   | Substitute in visual selection     |
+
+### Usage Examples: Substitute.nvim
+
+- `siw` → substitute inner word
+- `ss` → substitute entire current line
+- `S` → substitute from cursor to end of line
+- Visual mode `v` select → `s` → replace selection
+
+---
+
+## Treesitter Textobjects Cheatsheet
+
+### Selection Keymaps
+
+| Key Combo | Mode  | Textobject         | Description      |
+| --------- | ----- | ------------------ | ---------------- |
+| `aa`      | `x/o` | `@parameter.outer` | Around parameter |
+| `ia`      | `x/o` | `@parameter.inner` | Inside parameter |
+| `af`      | `x/o` | `@function.outer`  | Around function  |
+| `if`      | `x/o` | `@function.inner`  | Inside function  |
+| `ac`      | `x/o` | `@class.outer`     | Around class     |
+| `ic`      | `x/o` | `@class.inner`     | Inside class     |
+
+### Movement Keymaps
+
+| Key Combo | Direction | Target         |
+| --------- | --------- | -------------- |
+| `]m`      | Next      | Function start |
+| `]M`      | Next      | Function end   |
+| `]]`      | Next      | Class start    |
+| `][`      | Next      | Class end      |
+| `[m`      | Previous  | Function start |
+| `[M`      | Previous  | Function end   |
+| `[[`      | Previous  | Class start    |
+| `[]`      | Previous  | Class end      |
+
+### Incremental Selection
+
+| Key Combo   | Action                          |
+| ----------- | ------------------------------- |
+| `<C-Space>` | Init / Expand selection         |
+| `<C-H>`     | Shrink selection (custom remap) |
+| `<C-S>`     | Expand scope selection          |
 
 ---
 
