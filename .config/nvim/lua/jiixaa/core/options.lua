@@ -39,6 +39,9 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+-- sign column
+vim.o.signcolumn = "yes"
+
 -- Enable word wrap for Markdown files
 vim.cmd([[
   autocmd FileType markdown setlocal wrap linebreak
