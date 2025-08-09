@@ -22,7 +22,7 @@ return {
     },
     opts = function(_, opts)
       opts.formatting = opts.formatting or {}
-      opts.formatting.format = opts.formatting.format or function(entry, item)
+      opts.formatting.format = opts.formatting.format or function(_, item)
         return item
       end
 
