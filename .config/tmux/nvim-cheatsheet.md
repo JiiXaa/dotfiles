@@ -396,6 +396,89 @@ In visual mode, select HTML code or a placeholder text, press `<leader>xe`, and 
 
 ---
 
+## Undotree
+
+### **Description**
+
+The `mbbill/undotree` plugin provides a visual representation of your undo history, allowing you to navigate and restore changes easily.
+
+### **Keybindings**
+
+| Mode | Key Combo   | Action           | Description                       |
+| ---- | ----------- | ---------------- | --------------------------------- |
+| `n`  | `<leader>u` | `UndotreeToggle` | Toggle the undo tree panel on/off |
+
+### **Usage Notes**
+
+- The undo tree panel opens in a split window showing all undo/redo branches.
+- You can navigate between states in the undo history and restore them.
+- Useful for tracking changes beyond simple linear undo/redo.
+
+---
+
+## Vim-Maximizer
+
+### **Description**
+
+The `szw/vim-maximizer` plugin allows you to maximize and restore the current split window in Neovim, making it easier to focus on one pane.
+
+### **Keybindings**
+
+| Mode | Key Combo | Action            | Description                        |
+| ---- | --------- | ----------------- | ---------------------------------- |
+| `n`  | `<C-w>m`  | `MaximizerToggle` | Toggle maximizing/restoring window |
+
+### **Usage Notes**
+
+- When toggled on, the current split will expand to fill the Neovim window.
+- Press the same shortcut again to restore the previous layout.
+- Works well with multiple splits to focus on one task.
+
+---
+
+## Vim-Visual-Multi
+
+This plugin enables powerful **multicursor editing**
+
+### Default Mappings (with default `VM_leader = \`)
+
+| Action              | Default Keybinding |
+| ------------------- | ------------------ |
+| Find Under          | `<C-n>`            |
+| Find Subword Under  | `<C-n>`            |
+| Select All          | `\A`               |
+| Start Regex Search  | `\/`               |
+| Add Cursor Down     | `<C-Down>`         |
+| Add Cursor Up       | `<C-Up>`           |
+| Visual Regex        | `\/`               |
+| Visual All          | `\A`               |
+| Visual Add          | `\a`               |
+| Visual Find         | `\f`               |
+| Visual Cursors      | `\c`               |
+| Switch Mode         | `<Tab>`            |
+| Find Next           | `]`                |
+| Find Prev           | `[`                |
+| Goto Next           | `}`                |
+| Goto Prev           | `{`                |
+| Seek Next           | `<C-f>`            |
+| Seek Prev           | `<C-b>`            |
+| Skip Region         | `q`                |
+| Remove Region       | `Q`                |
+| Invert Direction    | `o`                |
+| Find Operator       | `m`                |
+| Surround            | `S`                |
+| Replace Pattern     | `R`                |
+| Tools Menu          | ``\```             |
+| Show Registers      | `\"`               |
+| Case Setting        | `\c`               |
+| Toggle Whole Word   | `\w`               |
+| Transpose           | `\t`               |
+| Align               | `\a`               |
+| Duplicate           | `\d`               |
+| Rewrite Last Search | `\r`               |
+
+---
+
 ### Tip: Open Cheatsheet in Tmux Popup
 
 Add this to your `.tmux.conf`:
