@@ -1,30 +1,19 @@
 return {
   "mg979/vim-visual-multi",
-  event = "BufReadPre", -- Adjust the event as needed
-  config = function()
-    -- Disable default mappings
-    vim.g.VM_default_mappings = 0
+  event = "BufReadPre", -- Load before reading a buffer for faster startup
+  init = function()
+    -- Use plugin's default key mappings (Ctrl-n, Ctrl-Down, etc.)
+    vim.g.VM_default_mappings = 1
 
-    -- Define custom function for visual cursors with delay
-    local function visual_cursors_with_delay()
-      vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
-      vim.cmd("sleep 200m")
-      vim.cmd('silent! execute "normal! A"')
-    end
+    -- (Optional) VM_leader sets the leader key for plugin-specific commands
+    -- Default is "\\" (backslash). Uncomment to change:
+    -- vim.g.VM_leader = "\\"
 
-    -- Register the function globally if it needs to be accessed by VimScript
-    _G.visual_cursors_with_delay = visual_cursors_with_delay
-
-    -- Set custom key mappings
-    local map = vim.api.nvim_set_keymap
-    local opts = { noremap = true, silent = true }
-
-    -- Visual Multi mappings using <leader> as the prefix
-    map("n", "<leader>ma", "<Plug>(VM-Select-All)<Tab>", opts)
-    map("n", "<leader>mr", "<Plug>(VM-Start-Regex-Search)", opts)
-    map("n", "<leader>mp", "<Plug>(VM-Add-Cursor-At-Pos)", opts)
-    map("n", "<leader>mv", "v:lua.visual_cursors_with_delay()", { expr = true, noremap = true, silent = true })
-    map("n", "<leader>mo", "<Plug>(VM-Toggle-Mappings)", opts)
-    map("n", "<leader>mn", "<Plug>(VM-Find-Under)", opts)
+    -- (Optional) Customize specific mappings if needed (leave empty for defaults)
+    -- Example:
+    -- vim.g.VM_maps = {
+    --   ["Add Cursor Down"] = "<M-j>", -- Alt-j instead of Ctrl-Down
+    --   ["Add Cursor Up"]   = "<M-k>", -- Alt-k instead of Ctrl-Up
+    -- }
   end,
 }
