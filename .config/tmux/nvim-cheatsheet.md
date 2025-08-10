@@ -479,6 +479,34 @@ This plugin enables powerful **multicursor editing**
 
 ---
 
+## `<C-w>` Window Management Keymaps
+
+| Key Combo | Mode | Action                        | Description                                              |
+| --------- | ---- | ----------------------------- | -------------------------------------------------------- |
+| `<C-w>m`  | `n`  | `:MaximizerToggle`            | Toggle Maximizer (maximize/restore current split window) |
+| `<C-w>d`  | `n`  | `vim.diagnostic.open_float()` | Show diagnostics under cursor (LSP diagnostic popup)     |
+| `<C-w>v`  | `n`  | `:vsplit`                     | Split window vertically                                  |
+| `<C-w>s`  | `n`  | `:split`                      | Split window horizontally                                |
+| `<C-w>q`  | `n`  | `:quit`                       | Close current window                                     |
+| `<C-w>o`  | `n`  | `:only`                       | Close all windows except the current one                 |
+| `<C-w>h`  | `n`  | Move cursor left              | Focus window to the left                                 |
+| `<C-w>l`  | `n`  | Move cursor right             | Focus window to the right                                |
+| `<C-w>k`  | `n`  | Move cursor up                | Focus window above                                       |
+| `<C-w>j`  | `n`  | Move cursor down              | Focus window below                                       |
+| `<C-w>=`  | `n`  | Equalize window sizes         | Make all splits equal size                               |
+| `<C-w>_`  | `n`  | Maximize height               | Make current split take full height                      |
+| `<C-w>\|` | `n`  | Maximize width                | Make current split take full width                       |
+| `<C-w>x`  | `n`  | Exchange window with next     | Swap current window position with the next               |
+| `<C-w>r`  | `n`  | Rotate windows forward        | Move all windows positions forward                       |
+| `<C-w>R`  | `n`  | Rotate windows backward       | Move all windows positions backward                      |
+| `<C-w>T`  | `n`  | Break out into a new tab      | Move current split into its own tab                      |
+| `<C-w>H`  | `n`  | Move split to far left        | Change split layout and move to far left                 |
+| `<C-w>L`  | `n`  | Move split to far right       | Change split layout and move to far right                |
+| `<C-w>K`  | `n`  | Move split to top             | Change split layout and move to top                      |
+| `<C-w>J`  | `n`  | Move split to bottom          | Change split layout and move to bottom                   |
+
+---
+
 ### Tip: Open Cheatsheet in Tmux Popup
 
 Add this to your `.tmux.conf`:
