@@ -17,38 +17,6 @@ keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { noremap = true, silent = true })
 -- Select all text
 keymap.set("n", "<leader>a", "ggVG", { noremap = true, silent = true })
 
--- Visual mode mapping to copy to clipboard
-keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true })
-
--- Normal mode mapping to copy from the cursor to the end of line to clipboard
-keymap.set("n", "<leader>Y", '"+yg_', { noremap = true, silent = true })
-
--- Normal mode mapping to copy the current line to clipboard
-keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true })
-
--- Normal mode mapping to copy the entire line to clipboard
-keymap.set("n", "<leader>yy", '"+yy', { noremap = true, silent = true })
-
--- Visual mode mapping to cut to clipboard
-keymap.set("v", "<leader>x", '"+x', { noremap = true, silent = true })
-
--- Normal mode mapping to cut the current line to clipboard
-keymap.set("n", "<leader>dd", '"+dd', { noremap = true, silent = true })
-
--- Normal mode mapping to cut from the cursor to the end of line to clipboard
-keymap.set("n", "<leader>D", '"+D', { noremap = true, silent = true })
-
--- Normal mode mapping to paste from clipboard
-keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true })
-keymap.set("n", "<leader>P", '"+P', { noremap = true, silent = true })
-
--- Visual mode mapping to paste from clipboard
-keymap.set("v", "<leader>p", '"+p', { noremap = true, silent = true })
-keymap.set("v", "<leader>P", '"+P', { noremap = true, silent = true })
-
--- Exit insert mode with 'jk'
-keymap.set("i", "jk", "<ESC>")
-
 -- Clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
