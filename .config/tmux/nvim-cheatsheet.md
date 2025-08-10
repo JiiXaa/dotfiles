@@ -479,6 +479,79 @@ This plugin enables powerful **multicursor editing**
 
 ---
 
+## LSP (nvim-lspconfig)
+
+### Attach-time Keymaps (buffer-local)
+
+| Key Combo    | Mode  | Action                           | Description                       |
+| ------------ | ----- | -------------------------------- | --------------------------------- |
+| `gR`         | `n`   | `Telescope lsp_references`       | Show all references (Telescope)   |
+| `gD`         | `n`   | `vim.lsp.buf.declaration()`      | Go to declaration                 |
+| `gd`         | `n`   | `Telescope lsp_definitions`      | Show definitions (Telescope)      |
+| `gi`         | `n`   | `Telescope lsp_implementations`  | Show implementations (Telescope)  |
+| `gt`         | `n`   | `Telescope lsp_type_definitions` | Show type definitions (Telescope) |
+| `<leader>ca` | `n/v` | `vim.lsp.buf.code_action()`      | Code actions (normal/visual)      |
+| `<leader>rn` | `n`   | `vim.lsp.buf.rename()`           | Smart rename                      |
+| `K`          | `n`   | `vim.lsp.buf.hover()`            | Hover docs                        |
+| `<leader>rs` | `n`   | `:LspRestart`                    | Restart LSP server                |
+
+### Diagnostics
+
+| Key Combo    | Mode | Action                          | Description                         |
+| ------------ | ---- | ------------------------------- | ----------------------------------- |
+| `<leader>fD` | `n`  | `Telescope diagnostics bufnr=0` | Buffer diagnostics (Telescope)      |
+| `<leader>d`  | `n`  | `vim.diagnostic.open_float()`   | Line diagnostics popup under cursor |
+| `[d`         | `n`  | `vim.diagnostic.goto_prev()`    | Previous diagnostic                 |
+| `]d`         | `n`  | `vim.diagnostic.goto_next()`    | Next diagnostic                     |
+
+### Visuals & Behavior
+
+- **Signs**: custom glyphs for Error/Warning/Info/Hint are enabled.
+- **Virtual Text**: enabled with `●` prefix.
+- **Underline**: enabled for diagnostics.
+- **Sort by severity**: enabled.
+- **No updates in insert mode**: diagnostics don’t update while typing.
+
+### Per-Server Notes
+
+- **Go (`gopls`)**
+  - `staticcheck = true`
+  - extra analyses: `unusedparams`, `shadow`
+
+- **Rust (`rust_analyzer`)**
+  - `cargo.allFeatures = true` (enable all feature flags)
+  - `check.command = "clippy"` (inline diagnostics powered by `clippy`)
+
+- **CSS (`cssls`)**
+  - Ignores unknown `@rules` for css/scss/less (less noisy)
+
+- **Tailwind (`tailwindcss`)**
+  - Enabled for: `html`, `css`, `scss`, `sass`, `javascript(react)`, `typescript(react)`, `svelte`
+
+- **Svelte (`svelte`)**
+  - Notifies server on `*.js`/`*.ts` file writes to keep diagnostics in sync
+
+- **GraphQL (`graphql`)**
+  - Filetypes: `graphql`, `gql`, `svelte`, `typescriptreact`, `javascriptreact`
+
+- **Emmet (`emmet_ls`)**
+  - Filetypes: `html`, `tsx/jsx`, `css/sass/scss/less`, `svelte`
+
+- **TypeScript/JS (`ts_ls`)**
+  - Using the modern `ts_ls` server (placeholder config, inherits global capabilities)
+
+- **Lua (`lua_ls`)**
+  - Runtime `LuaJIT`, globals include `vim`, telemetry disabled
+  - Workspace library includes Neovim runtime & luv/busted libs
+  - Completion: `callSnippet = "Replace"`
+
+### Tips
+
+- **Telescope integration** is used for the heavy hitters (`gd`, `gR`, etc.), so you get nice pickers instead of raw jumps.
+- All LSP capabilities from `cmp-nvim-lsp` are applied **globally** (via `lspconfig.util.default_config`), so completion works uniformly across servers.
+
+---
+
 ## `<C-w>` Window Management Keymaps
 
 | Key Combo | Mode | Action                        | Description                                              |
