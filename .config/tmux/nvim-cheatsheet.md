@@ -580,6 +580,27 @@ This plugin enables powerful **multicursor editing**
 
 ---
 
+## Custom Keybindings
+
+| Key Combo    | Mode   | Action              | Description                      |
+| ------------ | ------ | ------------------- | -------------------------------- |
+| `<C-j>`      | Normal | `3<C-e>`            | Scroll view down 3 lines         |
+| `<C-k>`      | Normal | `3<C-y>`            | Scroll view up 3 lines           |
+| `<C-s>`      | Normal | `<cmd>w<CR>`        | Save file                        |
+| `<leader>qq` | Normal | `<cmd>qa<CR>`       | Quit NeoVim                      |
+| `<leader>a`  | Normal | `ggVG`              | Select all text                  |
+| `<leader>nh` | Normal | `:nohl<CR>`         | Clear search highlights          |
+| `<C-a>`      | Normal | `<C-a>`             | Increment number                 |
+| `<leader>=`  | Normal | `<C-a>`             | Increment number                 |
+| `<leader>-`  | Normal | `<C-x>`             | Decrement number                 |
+| `<leader>to` | Normal | `<cmd>tabnew<CR>`   | Open new tab                     |
+| `<leader>tx` | Normal | `<cmd>tabclose<CR>` | Close current tab                |
+| `<leader>tn` | Normal | `<cmd>tabn<CR>`     | Go to next tab                   |
+| `<leader>tp` | Normal | `<cmd>tabp<CR>`     | Go to previous tab               |
+| `<leader>tf` | Normal | `<cmd>tabnew %<CR>` | Open current buffer in a new tab |
+
+---
+
 ### Tip: Open Cheatsheet in Tmux Popup
 
 Add this to your `.tmux.conf`:
