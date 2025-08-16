@@ -47,7 +47,7 @@ full_path             = false            # show just the basename, not full path
 search_submodules     = true             # include initialized git submodules
 recursive_submodules  = false            # but don't recurse into submodules of submodules
 
-# --- picker key-bindings (optional) ----------
+# --- picker key-bindings ----------
 [shortcuts]
 "ctrl-j" = "move_down"   # ↓ in picker
 "ctrl-k" = "move_up"     # ↑ in picker
