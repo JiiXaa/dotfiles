@@ -96,8 +96,8 @@ Includes session management, layout, mouse, pane resizing, and buffer controls.
 
 | Key      | Action                | Description                                  |
 | -------- | --------------------- | -------------------------------------------- |
-| `s`      | Open tms picker       | Open/create session (fuzzy) in a tmux popup  |
-| `S`      | Switch sessions (tms) | Show all sessions to switch (popup)          |
+| `S`      | Open tms picker       | Open/create session (fuzzy) in a tmux popup  |
+| `s`      | Switch sessions (tms) | Show all sessions to switch (popup)          |
 | `w`      | Switch window (tms)   | Pick a window in the current session (popup) |
 | `Ctrl-j` | `move_down`           | Move selection down                          |
 | `Ctrl-k` | `move_up`             | Move selection up                            |
