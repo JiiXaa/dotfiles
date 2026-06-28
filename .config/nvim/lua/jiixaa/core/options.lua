@@ -17,7 +17,11 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 opt.wrap = false
 
---search settings
+-- Indent with Tab / Shift-Tab in visual mode
+vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent selection" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Outdent selection" })
+
+-- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
